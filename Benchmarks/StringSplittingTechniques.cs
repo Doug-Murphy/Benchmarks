@@ -1,5 +1,4 @@
-﻿#if NET5_0_OR_GREATER
-using BenchmarkDotNet.Attributes;
+﻿using BenchmarkDotNet.Attributes;
 using System;
 
 namespace Benchmarks.Benchmarks {
@@ -19,6 +18,7 @@ namespace Benchmarks.Benchmarks {
             return (firstNum, secondNum, thirdNum);
         }
 
+#if !NETFRAMEWORK
         [Benchmark]
         public (int num1, int num2, int num3) StringSpanSlice() {
             ReadOnlySpan<char> stringAsSpan = _testString.AsSpan();
@@ -29,19 +29,20 @@ namespace Benchmarks.Benchmarks {
 
             return (firstNum, secondNum, thirdNum);
         }
+#endif
 
         [Benchmark]
         public (int num1, int num2, int num3) StringSplitTriple() {
-            int firstNum = int.Parse(_testString.Split(' ', StringSplitOptions.RemoveEmptyEntries)[0]);
-            int secondNum = int.Parse(_testString.Split(' ', StringSplitOptions.RemoveEmptyEntries)[1]);
-            int thirdNum = int.Parse(_testString.Split(' ', StringSplitOptions.RemoveEmptyEntries)[2]);
+            int firstNum = int.Parse(_testString.Split(' ')[0]);
+            int secondNum = int.Parse(_testString.Split(' ')[1]);
+            int thirdNum = int.Parse(_testString.Split(' ')[2]);
 
             return (firstNum, secondNum, thirdNum);
         }
 
         [Benchmark]
         public (int num1, int num2, int num3) StringSplitSingle() {
-            string[] splitString = _testString.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            string[] splitString = _testString.Split(' ');
 
             int firstNum = int.Parse(splitString[0]);
             int secondNum = int.Parse(splitString[1]);
@@ -51,4 +52,3 @@ namespace Benchmarks.Benchmarks {
         }
     }
 }
-#endif
