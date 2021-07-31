@@ -4,7 +4,8 @@ using Benchmarks.Benchmarks;
 namespace Benchmarks {
     public class Program {
         public static void Main(string[] args) {
-            BenchmarkRunner.Run<StringSplittingTechniques>();
+            BenchmarkRunner.Run<MultipleIfComparedToSwitch>();
+            //BenchmarkRunner.Run<StringSplittingTechniques>();
         }
     }
 }
