@@ -1,14 +1,11 @@
 ﻿using BenchmarkDotNet.Running;
-using Benchmarks.Benchmarks;
 
 namespace Benchmarks {
     public class Program {
         public static void Main(string[] args) {
-            BenchmarkRunner.Run<TryCatchMethodCallStack>();
-            //BenchmarkRunner.Run<WhereDelegateFirstOrDefaultComparedToFirstOrDefaultDelegate>();
-            //BenchmarkRunner.Run<LinqAnyComparedToCountProperty>();
-            //BenchmarkRunner.Run<MultipleIfComparedToSwitch>();
-            //BenchmarkRunner.Run<StringSplittingTechniques>();
+            //Run with the following command on CLI to run a chosen benchmark on all runtimes after the --runtimes flag
+            //dotnet run -c Release -f net48 --runtimes net48 netcoreapp3.1 net5.0
+            BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args);
         }
     }
 }
