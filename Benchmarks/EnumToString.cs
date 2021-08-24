@@ -4,15 +4,17 @@ using System;
 namespace Benchmarks.Benchmarks {
     [MemoryDiagnoser]
     public class EnumToString {
-        [Benchmark]
-        public string EnumValueToString() {
-            return Animals.Dog.ToString();
-        }
+        [Params(Animals.Dog)]
+        public Animals _enumToUse;
 
         [Benchmark]
+        public string EnumValueToString() {
+            return _enumToUse.ToString();
+        }
+
+        [Benchmark(Baseline = true)]
         public string EnumValueSwitchNameof() {
-            Animals enumToUse = Animals.Dog;
-            switch (enumToUse) {
+            switch (_enumToUse) {
                 case Animals.Dog:
                     return nameof(Animals.Dog);
                 case Animals.Cat:
@@ -24,8 +26,7 @@ namespace Benchmarks.Benchmarks {
             }
         }
 
-
-        private enum Animals {
+        public enum Animals {
             Dog,
             Cat,
             Fish
