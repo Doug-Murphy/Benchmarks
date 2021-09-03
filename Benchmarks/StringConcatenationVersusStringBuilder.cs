@@ -4,13 +4,14 @@ using System.Text;
 namespace Benchmarks.Benchmarks {
     [MemoryDiagnoser]
     public class StringConcatenationVersusStringBuilder {
-        private const int NUM_OF_ITERATIONS = 100;
+        [Params(1, 5, 10, 100)]
+        public int NumberOfIterations = 100;
 
         [Benchmark]
         public string StringBuilder() {
             var stringToReturn = new StringBuilder();
 
-            for (var i = 0; i < NUM_OF_ITERATIONS; i++) {
+            for (var i = 0; i < NumberOfIterations; i++) {
                 stringToReturn.Append(i);
             }
 
@@ -21,7 +22,7 @@ namespace Benchmarks.Benchmarks {
         public string StringConcatenation() {
             string stringToReturn = null;
 
-            for (var i = 0; i < NUM_OF_ITERATIONS; i++) {
+            for (var i = 0; i < NumberOfIterations; i++) {
                 stringToReturn += i;
             }
 
