@@ -13,14 +13,14 @@ namespace Benchmarks.Benchmarks {
 	///		DistinctList - No repeated keys in list
 	///		AllSameKey - Only 1 repeated key in list
 	///		100Keys - 100 possible keys, repeated via modulo throughout the source list
-	/// Results: Forloop dictionary took about half the time of the groupby method and was slightly more memory efficient
-	///		DistinctList and hundred buckets were an order of magnitude slower than all the same key in both methods
 	/// </summary>
 	[MemoryDiagnoser]
 	public class GroupByVersusForLoopDictionary {
-		private List<(int, string)> distinctList = Enumerable.Range(0, 100_000).Select(x => (x, x.ToString())).ToList();
-		private List<(int, string)> allSameKey = Enumerable.Range(0, 100_000).Select(x => (1, x.ToString())).ToList();
-		private List<(int, string)> oneHundredBucketChallenge = Enumerable.Range(0, 100_000).Select(x => (x % 100, x.ToString())).ToList();
+		private const int ListSize = 100_000;
+
+		private List<(int, string)> distinctList = Enumerable.Range(0, ListSize).Select(x => (x, x.ToString())).ToList();
+		private List<(int, string)> allSameKey = Enumerable.Range(0, ListSize).Select(x => (1, x.ToString())).ToList();
+		private List<(int, string)> oneHundredBucketChallenge = Enumerable.Range(0, ListSize).Select(x => (x % 100, x.ToString())).ToList();
 		
 		[ParamsAllValues]
 		public GroupByVersusForLoopDictionaryKeyDensity ListKeyDensity { get; set; }
@@ -53,9 +53,9 @@ namespace Benchmarks.Benchmarks {
 				case GroupByVersusForLoopDictionaryKeyDensity.AllSameKey:
 					return allSameKey;
 				case GroupByVersusForLoopDictionaryKeyDensity.OneHundredBucketChallenge:
-					return distinctList;
+					return oneHundredBucketChallenge;
 				default:
-					throw new Exception($"enum value {listKeyDensity} is unrouted");
+					throw new ArgumentOutOfRangeException($"enum value {listKeyDensity} is unrouted");
 			}
 		}
 		
