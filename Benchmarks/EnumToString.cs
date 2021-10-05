@@ -4,12 +4,21 @@ using System;
 namespace Benchmarks.Benchmarks {
     [MemoryDiagnoser]
     public class EnumToString {
-        [Params(Animals.Dog)]
-        public Animals _enumToUse;
+        private readonly Animals _enumToUse = Animals.Dog;
 
         [Benchmark]
         public string EnumValueToString() {
             return _enumToUse.ToString();
+        }
+
+        [Benchmark]
+        public string EnumValueStringInterpolation() {
+            return $"Interpolated string {_enumToUse}";
+        }
+
+        [Benchmark]
+        public string EnumValueStringConcatenation() {
+            return "Concatenated string " + _enumToUse;
         }
 
         [Benchmark(Baseline = true)]
@@ -22,14 +31,14 @@ namespace Benchmarks.Benchmarks {
                 case Animals.Fish:
                     return nameof(Animals.Fish);
                 default:
-                    throw new Exception("Invalid enum option.");
+                    throw new ArgumentOutOfRangeException(nameof(_enumToUse));
             }
         }
 
-        public enum Animals {
+        private enum Animals {
             Dog,
             Cat,
-            Fish
+            Fish,
         }
     }
 }
