@@ -1,7 +1,7 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Order;
 
-namespace Benchmarks.Benchmarks {
+namespace Benchmarks.StringBenchmarks {
     [MemoryDiagnoser]
     [Orderer(SummaryOrderPolicy.FastestToSlowest)]
     public class StringConcatenationVersusStringInterpolation {

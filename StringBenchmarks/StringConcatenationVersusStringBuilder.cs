@@ -1,7 +1,7 @@
-﻿using BenchmarkDotNet.Attributes;
-using System.Text;
+﻿using System.Text;
+using BenchmarkDotNet.Attributes;
 
-namespace Benchmarks.Benchmarks {
+namespace Benchmarks.StringBenchmarks {
     [MemoryDiagnoser]
     public class StringConcatenationVersusStringBuilder {
         [Params(1, 5, 10, 100)]

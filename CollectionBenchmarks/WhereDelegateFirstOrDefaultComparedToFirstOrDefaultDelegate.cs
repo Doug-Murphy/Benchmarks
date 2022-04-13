@@ -1,8 +1,8 @@
-﻿using BenchmarkDotNet.Attributes;
-using System.Collections.Immutable;
+﻿using System.Collections.Immutable;
 using System.Linq;
+using BenchmarkDotNet.Attributes;
 
-namespace Benchmarks.Benchmarks {
+namespace Benchmarks.CollectionBenchmarks {
     [MemoryDiagnoser]
     public class WhereDelegateFirstOrDefaultComparedToFirstOrDefaultDelegate {
         private readonly ImmutableList<int> _list = Enumerable.Range(0, 1_000_000).ToImmutableList();

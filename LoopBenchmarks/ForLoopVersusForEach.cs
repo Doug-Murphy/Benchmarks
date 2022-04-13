@@ -1,8 +1,8 @@
-﻿using BenchmarkDotNet.Attributes;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using BenchmarkDotNet.Attributes;
 
-namespace Benchmarks.Benchmarks {
+namespace Benchmarks.LoopBenchmarks {
     [MemoryDiagnoser]
     public class ForLoopVersusForEach {
         private readonly List<int> _list = Enumerable.Range(1, 500).ToList();

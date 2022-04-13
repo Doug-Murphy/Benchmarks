@@ -1,7 +1,7 @@
 ﻿using BenchmarkDotNet.Attributes;
 using System;
 
-namespace Benchmarks.Benchmarks {
+namespace Benchmarks.StringBenchmarks {
     /// <summary>
     /// A benchmark to compare various ways of splitting a string to extract certain parts.
     /// </summary>

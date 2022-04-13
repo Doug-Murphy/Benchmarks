@@ -1,9 +1,9 @@
-﻿using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Order;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Order;
 
-namespace Benchmarks.Benchmarks {
+namespace Benchmarks.CollectionBenchmarks {
     [MemoryDiagnoser]
     [Orderer(SummaryOrderPolicy.FastestToSlowest)]
     public class LinqAnyVersusEnumerableContains {

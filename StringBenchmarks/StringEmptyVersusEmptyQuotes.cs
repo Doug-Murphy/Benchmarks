@@ -1,6 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 
-namespace Benchmarks.Benchmarks {
+namespace Benchmarks.StringBenchmarks {
     [MemoryDiagnoser]
     public class StringEmptyVersusEmptyQuotes {
         [Benchmark]
