@@ -80,48 +80,48 @@ namespace Benchmarks.ClassesRecordsBenchmarks {
         private readonly RecordPropertyCount1 instance2RecordPropertyCount1 = new RecordPropertyCount1("1");
 
         [Benchmark]
-        public void RecordCheckProperty1AllSame() {
-            bool areEqual = instance1RecordPropertyCount1 == instance2RecordPropertyCount1;
+        public bool RecordCheckProperty1AllSame() {
+            return instance1RecordPropertyCount1 == instance2RecordPropertyCount1;
         }
 
         private readonly RecordPropertyCount10 instance1RecordPropertyCount10 = new RecordPropertyCount10("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
         private readonly RecordPropertyCount10 instance2RecordPropertyCount10 = new RecordPropertyCount10("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
 
         [Benchmark]
-        public void RecordCheckProperty10AllSame() {
-            bool areEqual = instance1RecordPropertyCount10 == instance2RecordPropertyCount10;
+        public bool RecordCheckProperty10AllSame() {
+            return instance1RecordPropertyCount10 == instance2RecordPropertyCount10;
         }
 
         private readonly RecordPropertyCount20 instance1RecordPropertyCount20 = new RecordPropertyCount20("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20");
         private readonly RecordPropertyCount20 instance2RecordPropertyCount20 = new RecordPropertyCount20("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20");
 
         [Benchmark]
-        public void RecordCheckProperty20AllSame() {
-            bool areEqual = instance1RecordPropertyCount20 == instance2RecordPropertyCount20;
+        public bool RecordCheckProperty20AllSame() {
+            return instance1RecordPropertyCount20 == instance2RecordPropertyCount20;
         }
 
         private readonly RecordPropertyCount30 instance1RecordPropertyCount30AllSame = new RecordPropertyCount30("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30");
         private readonly RecordPropertyCount30 instance2RecordPropertyCount30AllSame = new RecordPropertyCount30("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30");
 
         [Benchmark]
-        public void RecordCheckProperty30AllSame() {
-            bool areEqual = instance1RecordPropertyCount30AllSame == instance2RecordPropertyCount30AllSame;
+        public bool RecordCheckProperty30AllSame() {
+            return instance1RecordPropertyCount30AllSame == instance2RecordPropertyCount30AllSame;
         }
 
         private readonly RecordPropertyCount20 instance1RecordPropertyCount20DifferAt10 = new RecordPropertyCount20("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20");
         private readonly RecordPropertyCount20 instance2RecordPropertyCount20DifferAt10 = new RecordPropertyCount20("1", "2", "3", "4", "5", "6", "7", "8", "9", "not-10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20");
 
         [Benchmark]
-        public void RecordCheckProperty20DifferAt10() {
-            bool areEqual = instance1RecordPropertyCount20DifferAt10 == instance2RecordPropertyCount20DifferAt10;
+        public bool RecordCheckProperty20DifferAt10() {
+            return instance1RecordPropertyCount20DifferAt10 == instance2RecordPropertyCount20DifferAt10;
         }
 
         private readonly RecordPropertyCount30 instance1RecordPropertyCount30DifferAt20 = new RecordPropertyCount30("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30");
         private readonly RecordPropertyCount30 instance2RecordPropertyCount30DifferAt20 = new RecordPropertyCount30("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "not-20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30");
 
         [Benchmark]
-        public void RecordCheckProperty30DifferAt20() {
-            bool areEqual = instance1RecordPropertyCount30DifferAt20 == instance2RecordPropertyCount30DifferAt20;
+        public bool RecordCheckProperty30DifferAt20() {
+            return instance1RecordPropertyCount30DifferAt20 == instance2RecordPropertyCount30DifferAt20;
         }
 
         private readonly ClassPropertyCount30 instance1ClassPropertyCount30DifferAt20 = new ClassPropertyCount30 {
@@ -190,8 +190,8 @@ namespace Benchmarks.ClassesRecordsBenchmarks {
         };
 
         [Benchmark]
-        public void ClassCheckProperty30DifferAt20() {
-            bool areEqual = instance1ClassPropertyCount30DifferAt20 == instance2ClassPropertyCount30DifferAt20;
+        public bool ClassCheckProperty30DifferAt20() {
+            return instance1ClassPropertyCount30DifferAt20 == instance2ClassPropertyCount30DifferAt20;
         }
     }
 }
