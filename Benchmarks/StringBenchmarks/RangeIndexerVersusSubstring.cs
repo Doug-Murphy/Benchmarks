@@ -1,7 +1,7 @@
 ﻿#if !NETFRAMEWORK
 using BenchmarkDotNet.Attributes;
 
-namespace Benchmarks.Benchmarks {
+namespace Benchmarks.StringBenchmarks {
     [MemoryDiagnoser]
     public class RangeIndexerVersusSubstring {
         private const string TEST_STRING = "This is a string.";
