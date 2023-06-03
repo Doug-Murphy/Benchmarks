@@ -6,18 +6,18 @@ namespace Benchmarks.ClassesRecordsBenchmarks {
         private readonly ClassWithMethods _classWithMethods = new ClassWithMethods();
 
         [Benchmark]
-        public void InstancedMethodCall() {
-            _classWithMethods.InstancedMethod();
+        public int InstancedMethodCall() {
+            return _classWithMethods.InstancedMethod();
         }
 
         [Benchmark]
-        public void InstancedMethodCallWithInstantiation() {
-            new ClassWithMethods().InstancedMethod();
+        public int InstancedMethodCallWithInstantiation() {
+            return new ClassWithMethods().InstancedMethod();
         }
 
         [Benchmark]
-        public void StaticMethodCall() {
-            ClassWithMethods.StaticMethod();
+        public int StaticMethodCall() {
+            return ClassWithMethods.StaticMethod();
         }
 
         private class ClassWithMethods {
