@@ -1,7 +1,7 @@
-﻿using BenchmarkDotNet.Attributes;
-using System;
+﻿using System;
+using BenchmarkDotNet.Attributes;
 
-namespace Benchmarks.Benchmarks {
+namespace Benchmarks.GeneralBenchmarks {
     [MemoryDiagnoser]
     public class EnumToString {
         private readonly Animals _enumToUse = Animals.Dog;

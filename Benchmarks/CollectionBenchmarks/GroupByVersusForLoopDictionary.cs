@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using BenchmarkDotNet.Attributes;
 
-namespace Benchmarks.Benchmarks {
+namespace Benchmarks.CollectionBenchmarks {
 	/// <summary>
 	/// Question: How long does it take to turn an enumerable into a dictionary key'd off of one of the enumerable's properties
 	/// Methods: 

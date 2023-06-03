@@ -1,6 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 
-namespace Benchmarks.Benchmarks {
+namespace Benchmarks.GeneralBenchmarks {
     [MemoryDiagnoser]
     public class MultipleIfComparedToSwitch {
         private int _intValue = 10;

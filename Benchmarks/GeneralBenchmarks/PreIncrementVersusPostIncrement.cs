@@ -1,6 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 
-namespace Benchmarks.Benchmarks {
+namespace Benchmarks.GeneralBenchmarks {
     [MemoryDiagnoser]
     public class PreIncrementVersusPostIncrement {
         private const int NUM_ITERATIONS = 1_000_000;

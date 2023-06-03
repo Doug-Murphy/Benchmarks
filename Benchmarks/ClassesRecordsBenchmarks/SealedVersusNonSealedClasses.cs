@@ -1,6 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 
-namespace Benchmarks.Benchmarks {
+namespace Benchmarks.ClassesRecordsBenchmarks {
     [MemoryDiagnoser]
     public class SealedVersusNonSealedClasses {
         private readonly SealedClass _sealedClass = new SealedClass();

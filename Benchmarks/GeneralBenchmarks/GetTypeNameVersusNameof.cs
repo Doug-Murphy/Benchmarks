@@ -1,7 +1,7 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Order;
 
-namespace Benchmarks.Benchmarks {
+namespace Benchmarks.GeneralBenchmarks {
     [MemoryDiagnoser]
     [Orderer(SummaryOrderPolicy.FastestToSlowest)]
     public class GetTypeNameVersusNameof {

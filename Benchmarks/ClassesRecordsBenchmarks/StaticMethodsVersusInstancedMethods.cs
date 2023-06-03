@@ -1,6 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 
-namespace Benchmarks.Benchmarks {
+namespace Benchmarks.ClassesRecordsBenchmarks {
     [MemoryDiagnoser]
     public class StaticMethodsVersusInstancedMethods {
         private readonly ClassWithMethods _classWithMethods = new ClassWithMethods();
