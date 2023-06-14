@@ -3,7 +3,7 @@
 namespace Benchmarks.GeneralBenchmarks {
     [MemoryDiagnoser, Orderer(BenchmarkDotNet.Order.SummaryOrderPolicy.FastestToSlowest)]
     public class NullChecking {
-        private Thing _thingInstance = null;
+        private readonly Thing _thingInstance = null;
 
         [Benchmark]
         public void NotEqualNull() {
