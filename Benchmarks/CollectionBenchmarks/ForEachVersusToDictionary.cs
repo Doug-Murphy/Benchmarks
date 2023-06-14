@@ -7,7 +7,7 @@ namespace Benchmarks.CollectionBenchmarks {
 	[MemoryDiagnoser]
 	[Orderer(SummaryOrderPolicy.FastestToSlowest)]
 	public class ForEachVersusToDictionary {
-		private static readonly IDictionary<string, string> Dictionary = new Dictionary<string, string> {
+		public static readonly IDictionary<string, string> Dictionary = new Dictionary<string, string> {
 			{"Key1", "Value1"},
 			{"Key2", "Value2"},
 			{"Key3", "Value3"},
@@ -22,7 +22,7 @@ namespace Benchmarks.CollectionBenchmarks {
 
 		[Benchmark]
 		public Dictionary<string, MockFileData> ForeachLoop() {
-			var newDictionary = new Dictionary<string, MockFileData>();
+			var newDictionary = new Dictionary<string, MockFileData>(Dictionary.Count);
 			foreach (KeyValuePair<string, string> keyValuePair in Dictionary) {
 				newDictionary.Add(keyValuePair.Key, new MockFileData(keyValuePair.Value));
 			}
