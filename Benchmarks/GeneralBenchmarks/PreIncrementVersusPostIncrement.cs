@@ -6,19 +6,23 @@ namespace Benchmarks.GeneralBenchmarks {
         private const int NUM_ITERATIONS = 1_000_000;
 
         [Benchmark]
-        public void PreIncrement() {
+        public int PreIncrement() {
             int counter = 0;
             for (int i = 0; i < NUM_ITERATIONS; ++i) {
                 counter = i;
             }
+
+            return counter;
         }
 
         [Benchmark]
-        public void PostIncrement() {
+        public int PostIncrement() {
             int counter = 0;
             for (int i = 0; i < NUM_ITERATIONS; i++) {
                 counter = i;
             }
+
+            return counter;
         }
     }
 }
