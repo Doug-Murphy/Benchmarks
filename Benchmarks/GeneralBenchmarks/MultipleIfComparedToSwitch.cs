@@ -6,7 +6,7 @@ namespace Benchmarks.GeneralBenchmarks {
         private int _intValue = 10;
 
         [Benchmark]
-        public void TenIfStatements() {
+        public int TenIfStatements() {
             if (_intValue == 1) {
                 _intValue += 1;
             }
@@ -37,10 +37,12 @@ namespace Benchmarks.GeneralBenchmarks {
             if (_intValue == 10) {
                 _intValue += 10;
             }
+
+            return _intValue;
         }
 
         [Benchmark]
-        public void TenIfElseIfStatements() {
+        public int TenIfElseIfStatements() {
             if (_intValue == 1) {
                 _intValue += 1;
             }
@@ -71,10 +73,12 @@ namespace Benchmarks.GeneralBenchmarks {
             else if (_intValue == 10) {
                 _intValue += 10;
             }
+
+            return _intValue;
         }
 
         [Benchmark]
-        public void TenCaseStatements() {
+        public int TenCaseStatements() {
             switch (_intValue) {
                 case 1:
                     _intValue += 1;
@@ -107,6 +111,8 @@ namespace Benchmarks.GeneralBenchmarks {
                     _intValue += 10;
                     break;
             }
+
+            return _intValue;
         }
     }
 }
