@@ -4,15 +4,15 @@ namespace Benchmarks.StringBenchmarks {
     [MemoryDiagnoser]
     public class StringEmptyVersusEmptyQuotes {
         [Benchmark]
-        public void StringEmpty() {
+        public string StringEmpty() {
             var foo = string.Empty;
-            string bar = foo + "bar";
+            return foo + "bar";
         }
 
         [Benchmark]
-        public void EmptyQuotes() {
+        public string EmptyQuotes() {
             var foo = "";
-            string bar = foo + "bar";
+            return foo + "bar";
         }
     }
 }
